@@ -68,6 +68,7 @@ class ObjParser(parser.Parser):
         # wavefront object
         self.wavefront = wavefront
         self.mesh = None
+        self.lines = []
         self.material = None
         self.vertices = [[0., 0., 0.]]
         self.normals = [[0., 0., 0.]]
@@ -147,6 +148,9 @@ class ObjParser(parser.Parser):
             if i == 0:
                 v1 = vertex
             vlast = vertex
+
+    def parse_l(self, args):
+        self.lines.append(list(args[0:1]))
 
     def parse_s(self, args):
         # unimplemented
